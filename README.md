@@ -1,2 +1,3 @@
-# wbp-assignment2
-Group B9 - CMP-4011A (Web-based Programming) Assignment 2
+# Web-based Programming - Assignment 2
+
+COVID-19 test booking website
