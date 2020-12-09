@@ -7,6 +7,7 @@
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheets/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="javascripts/wp.js" defer></script>
     <script>
         function register() {
             location.href = "./register";
@@ -83,6 +84,9 @@
                             <label for="phone">Phone number</label>
                         </div>
                     </div>
+                    <div class="alert alert-danger collapse" role="alert" id="emailAlert">
+                        An account with this email address already exists. Please either <a href="#" class="alert-link">log in</a> or enter a different email address.
+                    </div>
                     <div class="row no-gutters mb-0 mb-md-3">
                         <div class="col-md formInput mr-0 mr-md-2 mb-3 mb-md-0">
                             <input class="form-control" type="number" id="age" accesskey="A" placeholder="Age(years)" name="age" required>
@@ -91,7 +95,7 @@
                         <div class="col ml-0 ml-md-2 mb-3 mb-md-0">
                             <div class="dropdownSelect p-0">
                                 <select class="form-control" id="gender" name="gender">
-                                    <option disabled selected value="british">Gender (please select)</option>
+                                    <option disabled selected>Gender (please select)</option>
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
                                     <option value="other">Other/Prefer not to say</option>
@@ -161,6 +165,9 @@
                             <label for="password">Password</label>
                         </div>
                     </div>
+                    <div class="alert alert-danger mt-0 mt-md-3 collapse" role="alert" id="usernameAlert">
+                        An account with this username already exists. Please either <a href="#" class="alert-link">log in</a> or enter a different username.
+                    </div>
                 </div>
             </div>
 
@@ -202,15 +209,9 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md">
-                            <div class="dropdownSelect p-0 ml-0 ml-md-2 mb-3 mb-md-0">
-                                <select class="form-control" name="testTime2">
-                                    <option selected disabled>Select your second test time</option>
-                                    <option>Morning</option>
-                                    <option>Afternoon</option>
-                                </select>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="alert alert-danger mt-0 mt-md-3 collapse" role="alert" id="testSlotAlert">
+                        Your second test slot must be no more than 1 week after your first testing slot.
                     </div>
                 </div>
             </div>
