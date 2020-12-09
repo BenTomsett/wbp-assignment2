@@ -52,3 +52,60 @@ function getSecondTestMax(d){
     d = new Date(d.setDate(d.getDate() + 4));
     return d.toISOString().slice(0,10);
 }
+
+$('#bookingForm').submit(function(e){
+    e.preventDefault();
+
+    showSpinner();
+    hideError();
+
+    let form = $(this);
+    let url = '/register/booktest';
+
+    $.post(url, form.serialize(), function(){
+        //redirect to success page
+        window.location.replace("/success");
+    }).fail(function(xhr, status, error){
+        //parse response and show relevant error
+        console.log(xhr);
+
+        switch(xhr.responseText){
+            case "ERR_USERNAME_EXISTS":
+                hideSpinner();
+                showError('An account with this username already exists. Please either <a href="/login">log in</a> or choose a different username.');
+                break;
+            case "ERR_INVALID_POSTCODE":
+                hideSpinner();
+                showError('Please enter a valid postcode.');
+                break;
+            default:
+                hideSpinner();
+                showError('An unknown error occurred. Please check your internet connection and try again. If the issue persists, please contact the Norwich Testing Initiative for more help.');
+        }
+    })
+
+});
+
+function showSpinner(){
+    const submitButton = $('#submitButton');
+    submitButton.prop('disabled', true);
+    submitButton.html(
+        "<span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span> Working..."
+    );
+}
+
+function hideSpinner(){
+    const submitButton = $('#submitButton');
+    submitButton.prop('disabled', false);
+    submitButton.html(
+        "Submit"
+    );
+}
+
+function showError(text){
+    $(".alertHolder").addClass("alert alert-warning mt-3").html(text);
+}
+
+function hideError(){
+    $(".alertHolder").removeClass("alert alert-warning mt-3").html('');
+}
