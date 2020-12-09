@@ -1,3 +1,16 @@
+const loginButton = $("#loginButton");
+loginButton.click(function(){
+    window.location = "/login";
+});
+const bookButton = $("#bookButton");
+bookButton.click(function(){
+    window.location = "/register";
+});
+const getStarted = $("#getStarted");
+getStarted.click(function(){
+    window.location = "/register";
+});
+
 const testDateOne = $("#testDateOne");
 const testTimeOne = $("#testTimeOne");
 const testDateTwo = $("#testDateTwo");
@@ -53,6 +66,30 @@ function getSecondTestMax(d){
     return d.toISOString().slice(0,10);
 }
 
+function showSpinner(){
+    const submitButton = $('#submitButton');
+    submitButton.prop('disabled', true);
+    submitButton.html(
+        "<span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span> Working..."
+    );
+}
+
+function hideSpinner(){
+    const submitButton = $('#submitButton');
+    submitButton.prop('disabled', false);
+    submitButton.html(
+        "Submit"
+    );
+}
+
+function showError(text){
+    $(".alertHolder").addClass("alert alert-warning mt-3").html(text);
+}
+
+function hideError(){
+    $(".alertHolder").removeClass("alert alert-warning mt-3").html('');
+}
+
 $('#bookingForm').submit(function(e){
     e.preventDefault();
 
@@ -85,27 +122,3 @@ $('#bookingForm').submit(function(e){
     })
 
 });
-
-function showSpinner(){
-    const submitButton = $('#submitButton');
-    submitButton.prop('disabled', true);
-    submitButton.html(
-        "<span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span> Working..."
-    );
-}
-
-function hideSpinner(){
-    const submitButton = $('#submitButton');
-    submitButton.prop('disabled', false);
-    submitButton.html(
-        "Submit"
-    );
-}
-
-function showError(text){
-    $(".alertHolder").addClass("alert alert-warning mt-3").html(text);
-}
-
-function hideError(){
-    $(".alertHolder").removeClass("alert alert-warning mt-3").html('');
-}
