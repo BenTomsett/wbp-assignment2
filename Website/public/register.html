@@ -168,71 +168,37 @@
                 <div class="col-md px-0 px-md-3">
                     <h3>Choose your test slots.</h3>
                     <p class="mb-3">You'll need to book one testing slot per week for two consecutive weeks. We have two
-                        testing
-                        slots on each day; one in the morning and one in the afternoon.</p>
-                    <div class="row no-gutters mb-0 mb-md-3">
-                        <div class="col-md">
-                            <div class="dropdownSelect p-0 mr-0 mr-md-2 mb-3 mb-md-0">
-                                <select class="form-control" name="testDateOne">
-                                    <option selected disabled>Select your first test date</option>
-                                    <option value='04/01/2021'>Monday, 4 January 2021</option>
-                                    <option value='05/01/2021'>Tuesday, 5 January 2021</option>
-                                    <option value='06/01/2021'>Wednesday, 6 January 2021</option>
-                                    <option value='07/01/2021'>Thursday, 7 January 2021</option>
-                                    <option value='08/01/2021'>Friday, 8 January 2021</option>
-                                    <option value='11/01/2021'>Monday, 11 January 2021</option>
-                                    <option value='12/01/2021'>Tuesday, 12 January 2021</option>
-                                    <option value='13/01/2021'>Wednesday, 13 January 2021</option>
-                                    <option value='14/01/2021'>Thursday, 14 January 2021</option>
-                                    <option value='15/01/2021'>Friday, 15 January 2021</option>
-                                    <option value='18/01/2021'>Monday, 18 January 2021</option>
-                                    <option value='19/01/2021'>Tuesday, 19 January 2021</option>
-                                    <option value='20/01/2021'>Wednesday, 20 January 2021</option>
-                                    <option value='21/01/2021'>Thursday, 21 January 2021</option>
-                                    <option value='22/01/2021'>Friday, 22 January 2021</option>
-                                    <option value='25/01/2021'>Monday, 25 January 2021</option>
-                                    <option value='26/01/2021'>Tuesday, 26 January 2021</option>
-                                    <option value='27/01/2021'>Wednesday, 27 January 2021</option>
-                                    <option value='28/01/2021'>Thursday, 28 January 2021</option>
-                                    <option value='29/01/2021'>Friday, 29 January 2021</option>
-                                </select>
-                            </div>
+                        testing slots on each day; one in the morning and one in the afternoon.<br/>
+                        Test slots are available on weekdays between Monday 4th January 2021 and Friday 29th January 2021.
+                    </p>
+                    <div class="row no-gutters">
+                        <div class="col-md formInput mr-0 mr-md-2 mb-3 mb-md-0">
+                            <input class="form-control" type="date" id="testDateOne"
+                                   name="testDateOne" min="2021-01-04" max="2021-01-22" required>
+                            <label for="testDateOne">Select your first test date (DD/MM/YYYY)</label>
                         </div>
-                        <div class="col-md">
-                            <div class="dropdownSelect p-0 ml-0 ml-md-2 mb-3 mb-md-0">
-                                <select class="form-control" name="testTime1">
-                                    <option selected disabled>Select your first test time</option>
-                                    <option>Morning</option>
-                                    <option>Afternoon</option>
+                        <div class="col ml-0 ml-md-2 mb-3 mb-md-0">
+                            <div class="dropdownSelect p-0">
+                                <select required class="form-control" id="testTimeOne" name="testTimeOne">
+                                    <option disabled selected>Select your first test time...</option>
+                                    <option value="morning">Morning</option>
+                                    <option value="afternoon">Afternoon</option>
                                 </select>
                             </div>
                         </div>
                     </div>
-                    <div class="row no-gutters mb-0 mb-md-3">
-                        <div class="col-md">
-                            <div class="dropdownSelect p-0 mr-0 mr-md-2 mb-3 mb-md-0">
-                                <select class="form-control" name="testDate2">
-                                    <option selected disabled>Select your second test date</option>
-                                    <option value='04/01/2021'>Monday, 4 January 2021</option>
-                                    <option value='05/01/2021'>Tuesday, 5 January 2021</option>
-                                    <option value='06/01/2021'>Wednesday, 6 January 2021</option>
-                                    <option value='07/01/2021'>Thursday, 7 January 2021</option>
-                                    <option value='08/01/2021'>Friday, 8 January 2021</option>
-                                    <option value='11/01/2021'>Monday, 11 January 2021</option>
-                                    <option value='12/01/2021'>Tuesday, 12 January 2021</option>
-                                    <option value='13/01/2021'>Wednesday, 13 January 2021</option>
-                                    <option value='14/01/2021'>Thursday, 14 January 2021</option>
-                                    <option value='15/01/2021'>Friday, 15 January 2021</option>
-                                    <option value='18/01/2021'>Monday, 18 January 2021</option>
-                                    <option value='19/01/2021'>Tuesday, 19 January 2021</option>
-                                    <option value='20/01/2021'>Wednesday, 20 January 2021</option>
-                                    <option value='21/01/2021'>Thursday, 21 January 2021</option>
-                                    <option value='22/01/2021'>Friday, 22 January 2021</option>
-                                    <option value='25/01/2021'>Monday, 25 January 2021</option>
-                                    <option value='26/01/2021'>Tuesday, 26 January 2021</option>
-                                    <option value='27/01/2021'>Wednesday, 27 January 2021</option>
-                                    <option value='28/01/2021'>Thursday, 28 January 2021</option>
-                                    <option value='29/01/2021'>Friday, 29 January 2021</option>
+                    <div class="row no-gutters mt-3">
+                        <div class="col-md formInput mr-0 mr-md-2 mb-3 mb-md-0">
+                            <input disabled class="form-control" type="date" id="testDateTwo"
+                                   name="testDateTwo" required>
+                            <label for="testDateTwo">Select your second test date (DD/MM/YYYY)</label>
+                        </div>
+                        <div class="col ml-0 ml-md-2 mb-3 mb-md-0">
+                            <div class="dropdownSelect p-0">
+                                <select required disabled class="form-control" id="testTimeTwo" name="testTimeTwo">
+                                    <option disabled selected>Select your second test time...</option>
+                                    <option value="morning">Morning</option>
+                                    <option value="afternoon">Afternoon</option>
                                 </select>
                             </div>
                         </div>
