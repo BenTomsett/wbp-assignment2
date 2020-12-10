@@ -59,7 +59,7 @@
     </div>
     <!-- END Hero row -->
 
-    <form class="form-container row pt-0 pt-md-4" id="bookingForm">
+    <form class="form-container row pt-0 pt-md-4" action="/register" method="POST">
         <fieldset class="px-4">
             <div class="row pt-4 no-gutters">
                 <div class="col-md px-0 px-md-3">
@@ -208,7 +208,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="alertHolder">
+                    <% if(locals.message){
+                    %>
+                        <div class="alert alert-danger mt-3"><%- message %></div>
+                    <%
+                    } %>
                     </div>
                     <button type="submit" class="btn btn-lg btn-block border-0 text-white ntiButton my-4" id="submitButton">
                         Submit

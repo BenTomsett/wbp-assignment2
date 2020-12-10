@@ -16,26 +16,32 @@ registerRouter.get('/', (req, res, next) =>{
     }
 });
 
-registerRouter.post('/booktest', (req, res, next) => {
+registerRouter.post('/', (req, res, next) => {
     if(doesUserExist(req.body.username)){
-        res.status(400).send("ERR_USERNAME_EXISTS");
+        res.render('../templates/register', {
+            message: "A booking with that username already exists. Please either <a href=\"/user/login\">log in</a> or choose a different username."
+        });
     }else if(!validatePostcode(req.body.postcode.toUpperCase())){
-        res.status(400).send("ERR_INVALID_POSTCODE");
+        res.render('../templates/register', {
+            message: "Please enter a valid UK postcode."
+        });
     }else{
         let data = JSON.stringify(req.body);
         fs.writeFile(`bookings/${req.body.username}.json`, data, (err) => {
             if(err){
-                res.status(500).send();
+                res.render('../templates/register', {
+                    message: "An unknown error occurred. Please check your internet connection and try again. If the issue persists, please contact the Norwich Testing Initiative for more help."
+                });
                 throw err;
             }else{
                 sendEmail(req.body);
-                res.status(200).send();
+                res.redirect("/register/success");
             }
         });
     }
 });
 
-registerRouter.get('/booktest/success', (req, res, next) =>{
+registerRouter.get('/success', (req, res, next) =>{
    res.render('../templates/success');
 });
 

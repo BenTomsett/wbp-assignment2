@@ -105,36 +105,3 @@ function showError(text){
 function hideError(){
     $(".alertHolder").removeClass("alert alert-warning mt-3").html('');
 }
-
-$('#bookingForm').submit(function(e){
-    e.preventDefault();
-
-    showSpinner();
-    hideError();
-
-    let form = $(this);
-    let url = '/register/booktest';
-
-    $.post(url, form.serialize(), function(){
-        //redirect to success page
-        window.location.replace("/register/booktest/success");
-    }).fail(function(xhr, status, error){
-        //parse response and show relevant error
-        console.log(xhr);
-
-        switch(xhr.responseText){
-            case "ERR_USERNAME_EXISTS":
-                hideSpinner();
-                showError('An account with this username already exists. Please either <a href="/login">log in</a> or choose a different username.');
-                break;
-            case "ERR_INVALID_POSTCODE":
-                hideSpinner();
-                showError('Please enter a valid postcode.');
-                break;
-            default:
-                hideSpinner();
-                showError('An unknown error occurred. Please check your internet connection and try again. If the issue persists, please contact the Norwich Testing Initiative for more help.');
-        }
-    })
-
-});
