@@ -1,12 +1,13 @@
-var express = require('express');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var bookTestRouter = require('./routes/booktest');
-var userRouter = require('./routes/user');
+const express = require('express');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const bookTestRouter = require('./routes/booktest');
+const userRouter = require('./routes/user');
+const utils = require('./utils');
 
 require('dotenv').config();
 
-var app = express();
+const app = express();
 
 app.set('view engine', 'ejs');
 
