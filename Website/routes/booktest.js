@@ -8,7 +8,7 @@ const mailgun = require('mailgun-js')({apiKey: apiKey, domain: domain, host: "ap
 const bookTestRouter = express.Router();
 
 bookTestRouter.post('/booktest', (req, res, next) => {
-    if(doesBookingExist(req.body.username)){
+    if(doesUserExist(req.body.username)){
         res.status(400).send("ERR_USERNAME_EXISTS");
     }else if(!validatePostcode(req.body.postcode.toUpperCase())){
         res.status(400).send("ERR_INVALID_POSTCODE");
@@ -35,7 +35,7 @@ function validatePostcode(postcode){
     return POSTCODE_REGEX.test(postcode);
 }
 
-function doesBookingExist(username){
+function doesUserExist(username){
     return fs.existsSync(`bookings/${username}.json`);
 }
 
