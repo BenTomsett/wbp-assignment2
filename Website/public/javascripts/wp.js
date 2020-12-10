@@ -1,6 +1,6 @@
 const loginButton = $("#loginButton");
 loginButton.click(function(){
-    window.location = "/login";
+    window.location = "/user/login";
 });
 const bookButton = $("#bookButton");
 bookButton.click(function(){
@@ -9,6 +9,22 @@ bookButton.click(function(){
 const getStarted = $("#getStarted");
 getStarted.click(function(){
     window.location = "/register";
+});
+const accountButton = $("#accountButton");
+accountButton.click(function(){
+    window.location = "/user";
+});
+const heroAccountButton = $("#heroAccountButton");
+heroAccountButton.click(function(){
+    window.location = "/user";
+});
+const learnMoreCovidButton = $("#learnMoreCovid");
+learnMoreCovidButton.click(function(){
+    window.location = "/about-covid";
+});
+const learnMoreNtiButton = $("#learnMoreNti");
+learnMoreNtiButton.click(function(){
+    window.location = "/about-nti";
 });
 
 const testDateOne = $("#testDateOne");
@@ -101,7 +117,7 @@ $('#bookingForm').submit(function(e){
 
     $.post(url, form.serialize(), function(){
         //redirect to success page
-        window.location.replace("/success");
+        window.location.replace("/register/booktest/success");
     }).fail(function(xhr, status, error){
         //parse response and show relevant error
         console.log(xhr);

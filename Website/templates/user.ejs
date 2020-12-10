@@ -23,10 +23,18 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarContent">
-            <form class="form-inline justify-content-end">
-                <button class="btn btn-outline-light mr-3" type="button">Login</button>
-                <button class="btn btn-light" type="button">Book testing</button>
-            </form>
+            <% if(locals.authenticated === true){
+            %>
+                <form class="form-inline justify-content-end">
+                    <button class="btn btn-light" id="accountButton" type="button">View account</button>
+                </form>
+            <%
+            } else {%>
+                <form class="form-inline justify-content-end">
+                    <button class="btn btn-outline-light mr-3" id="loginButton" type="button">Login</button>
+                    <button class="btn btn-light" id="bookButton" type="button">Book testing</button>
+                </form>
+            <%}%>
         </div>
     </div>
 </nav>

@@ -1,13 +1,22 @@
 const express = require('express');
 const fs = require('fs');
+const utils = require('../utils');
 
 const domain = "nti.tomsett.xyz";
 const apiKey = "c6d16286d47f8a432e7b4b6134bca509-7bce17e5-43325f03";
 const mailgun = require('mailgun-js')({apiKey: apiKey, domain: domain, host: "api.eu.mailgun.net"});
 
-const bookTestRouter = express.Router();
+const registerRouter = express.Router();
 
-bookTestRouter.post('/booktest', (req, res, next) => {
+registerRouter.get('/', (req, res, next) =>{
+    if(utils.verifyToken(req)){
+        res.redirect('/user');
+    }else{
+        res.render('../templates/register');
+    }
+});
+
+registerRouter.post('/booktest', (req, res, next) => {
     if(doesUserExist(req.body.username)){
         res.status(400).send("ERR_USERNAME_EXISTS");
     }else if(!validatePostcode(req.body.postcode.toUpperCase())){
@@ -26,7 +35,11 @@ bookTestRouter.post('/booktest', (req, res, next) => {
     }
 });
 
-module.exports = bookTestRouter;
+registerRouter.get('/booktest/success', (req, res, next) =>{
+   res.render('../templates/success');
+});
+
+module.exports = registerRouter;
 
 //Sanity check - makes sure that postcode is in correct format
 //Regex pattern from https://gist.github.com/simonwhitaker/5748487
