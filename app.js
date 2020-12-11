@@ -4,6 +4,7 @@ const logger = require('morgan');
 const bookTestRouter = require('./routes/register');
 const userRouter = require('./routes/user');
 const utils = require('./utils');
+const wwwhisper = require('connect-wwwhisper');
 
 require('dotenv').config();
 
@@ -11,6 +12,7 @@ const app = express();
 
 app.set('view engine', 'ejs');
 
+app.use(wwwhisper());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
