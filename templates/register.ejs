@@ -15,7 +15,7 @@
 <nav class="navbar navbar-expand-md navbar-dark">
     <div class="container-md">
         <a class="navbar-brand" href="/">
-            <img src="images/icon-02-white.svg">
+            <img src="images/icon-02-white.svg" alt="Norwich Testing Initiative logo">
             <span class="navbar-brand-desktop">Norwich Testing Initiative</span>
             <span class="navbar-brand-mobile">NTI</span>
         </a>
@@ -95,8 +95,8 @@
                         </div>
                         <div class="col ml-0 ml-md-2 mb-3 mb-md-0">
                             <div class="dropdownSelect p-0">
-                                <select class="form-control" id="gender" name="gender">
-                                    <option disabled selected>Gender (please select)</option>
+                                <select class="form-control" id="gender" name="gender" required>
+                                    <option value="" disabled selected>Gender (please select)</option>
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
                                     <option value="other">Other/Prefer not to say</option>
@@ -107,8 +107,8 @@
                     <div class="row no-gutters mb-0 mb-md-3">
                         <div class="col-md mr-0 mr-md-2 mb-3 mb-md-0">
                             <div class="dropdownSelect p-0">
-                                <select class="form-control" id="ethnicity" name="ethnicity">
-                                    <option disabled selected value="british">Ethnicity (please select)</option>
+                                <select class="form-control" id="ethnicity" name="ethnicity" required>
+                                    <option disabled selected value="">Ethnicity (please select)</option>
                                     <option value="british">British</option>
                                     <option value="irish">Irish</option>
                                     <option value="gypsy">Gypsy</option>
@@ -169,6 +169,18 @@
                 </div>
             </div>
 
+            <div class="row pt-0 pt-md-3 no-gutters">
+                <div class="col-md px-0 px-md-3">
+                    <h4 class="mb-3">Any comments?</h4>
+                    <div class="row no-gutters mb-0 mb-md-3">
+                        <div class="col-md formInput mr-0 mr-md-2 mb-3 mb-md-0">
+                            <textarea class="form-control" accesskey="C" id="comments"
+                                      placeholder="Comments" name="comments" required></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="row pt-0 pt-md-5 no-gutters">
                 <div class="col-md px-0 px-md-3">
                     <h3>Choose your test slots.</h3>
@@ -185,7 +197,7 @@
                         <div class="col ml-0 ml-md-2 mb-3 mb-md-0">
                             <div class="dropdownSelect p-0">
                                 <select required class="form-control" id="testTimeOne" name="testTimeOne">
-                                    <option disabled selected>Select your first test time...</option>
+                                    <option value="" disabled selected>Select your first test time...</option>
                                     <option value="morning">Morning</option>
                                     <option value="afternoon">Afternoon</option>
                                 </select>
@@ -201,7 +213,7 @@
                         <div class="col ml-0 ml-md-2 mb-3 mb-md-0">
                             <div class="dropdownSelect p-0">
                                 <select required disabled class="form-control" id="testTimeTwo" name="testTimeTwo">
-                                    <option disabled selected>Select your second test time...</option>
+                                    <option value="" disabled selected>Select your second test time...</option>
                                     <option value="morning">Morning</option>
                                     <option value="afternoon">Afternoon</option>
                                 </select>
@@ -218,7 +230,6 @@
                         Submit
                     </button>
                 </div>
-            </div>
         </fieldset>
     </form>
 </div>

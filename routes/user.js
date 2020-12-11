@@ -18,6 +18,7 @@ userRouter.get('/', utils.authenticateMiddleware, (req, res, next) =>{
             house_name: user.house_name,
             postcode: user.postcode,
             username: user.username,
+            comments: user.comments,
             testDateOne: user.testDateOne,
             testTimeOne: user.testTimeOne,
             testDateTwo: user.testDateTwo,
