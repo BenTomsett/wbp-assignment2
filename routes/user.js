@@ -4,24 +4,28 @@ const utils = require('../utils');
 const userRouter = express.Router();
 
 userRouter.get('/', utils.authenticateMiddleware, (req, res, next) =>{
-    const user = utils.loadUserData(req.user.username);
-    res.render('../templates/user', {
-        authenticated: utils.verifyToken(req),
-        first_name: user.first_name,
-        last_name: user.last_name,
-        email: user.email,
-        phone: user.phone,
-        age: user.age,
-        gender: user.gender,
-        ethnicity: user.ethnicity,
-        house_name: user.house_name,
-        postcode: user.postcode,
-        username: user.username,
-        testDateOne: user.testDateOne,
-        testTimeOne: user.testTimeOne,
-        testDateTwo: user.testDateTwo,
-        testTimeTwo: user.testTimeTwo,
-    });
+    if(utils.doesUserExist(req.user.username)){
+        const user = utils.loadUserData(req.user.username);
+        res.render('../templates/user', {
+            authenticated: utils.verifyToken(req),
+            first_name: user.first_name,
+            last_name: user.last_name,
+            email: user.email,
+            phone: user.phone,
+            age: user.age,
+            gender: user.gender,
+            ethnicity: user.ethnicity,
+            house_name: user.house_name,
+            postcode: user.postcode,
+            username: user.username,
+            testDateOne: user.testDateOne,
+            testTimeOne: user.testTimeOne,
+            testDateTwo: user.testDateTwo,
+            testTimeTwo: user.testTimeTwo,
+        });
+    }else{
+        res.redirect('/user/login');
+    }
 })
 
 userRouter.get('/login', (req, res, next) =>{
