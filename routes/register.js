@@ -3,7 +3,7 @@ const fs = require('fs');
 const utils = require('../utils');
 
 const domain = "nti.tomsett.xyz";
-const apiKey = "c6d16286d47f8a432e7b4b6134bca509-7bce17e5-43325f03";
+const apiKey = "key-72f6d4fa4910a436a58e8689a2eaed38";
 const mailgun = require('mailgun-js')({apiKey: apiKey, domain: domain, host: "api.eu.mailgun.net"});
 
 const registerRouter = express.Router();

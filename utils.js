@@ -29,8 +29,10 @@ function verifyToken(req){
         jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
             console.log("JWT Error: " + err);
             if(!err){
-                console.log("Returning true");
-                authenticated = true;
+                if(doesUserExist(user.username)){
+                    console.log("Returning true");
+                    authenticated = true;
+                }
             }
         });
     }

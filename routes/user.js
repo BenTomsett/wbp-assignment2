@@ -29,7 +29,7 @@ userRouter.get('/', utils.authenticateMiddleware, (req, res, next) =>{
 })
 
 userRouter.get('/login', (req, res, next) =>{
-    if(utils.verifyToken(req) && utils.doesUserExist(req.user.username)){
+    if(utils.verifyToken(req)){
         res.redirect('/user');
     }else{
         res.render('../templates/login');
