@@ -81,27 +81,3 @@ function getSecondTestMax(d){
     d = new Date(d.setDate(d.getDate() + 4));
     return d.toISOString().slice(0,10);
 }
-
-function showSpinner(){
-    const submitButton = $('#submitButton');
-    submitButton.prop('disabled', true);
-    submitButton.html(
-        "<span class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></span> Working..."
-    );
-}
-
-function hideSpinner(){
-    const submitButton = $('#submitButton');
-    submitButton.prop('disabled', false);
-    submitButton.html(
-        "Submit"
-    );
-}
-
-function showError(text){
-    $(".alertHolder").addClass("alert alert-warning mt-3").html(text);
-}
-
-function hideError(){
-    $(".alertHolder").removeClass("alert alert-warning mt-3").html('');
-}
