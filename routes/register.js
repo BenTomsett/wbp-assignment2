@@ -62,7 +62,7 @@ function sendEmail(body){
 
     const data = {
         from: 'Norwich Testing Initiative <nti@nti.tomsett.xyz>',
-        to: "ben.e.tomsett@gmail.com",
+        to: body.email,
         subject: "Booking confirmation - Norwich Testing Initaitive",
         template: "booking",
         'v:firstname': body.first_name,
