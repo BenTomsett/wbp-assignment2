@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+//Displays project information
 console.log("\x1b[32m Web-based Programming (CMP-4011A)");
 console.log("      Assignment 2 - Team B9      \n");
 console.log("\x1b[0mProject developed by:");
@@ -11,14 +12,17 @@ console.log("\x1b[0mJonathan Belt     100318201     Frontend, about pages, testi
 var app = require('../app');
 var http = require('http');
 
+//Uses port 3000 unless a port is specified via command line
 var port = process.env.PORT || '3000';
-app.set('port', process.env.PORT || '3000');
+app.set('port', port);
 
+//Creates a new web server
 var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
+//Handles server errors
 function onError(error){
   throw error;
 }
