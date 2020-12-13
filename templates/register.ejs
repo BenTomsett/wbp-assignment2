@@ -40,6 +40,8 @@
     </div>
 </nav>
 
+<% if(!success) {%>
+
 <div class="container-md main-content pt-0 pt-md-4">
     <!-- Hero row -->
     <div class="row">
@@ -233,6 +235,29 @@
         </fieldset>
     </form>
 </div>
+
+<%} else {%>
+
+<div class="container-md main-content pt-0 pt-md-4">
+    <div class="row">
+        <div class="col px-0 px-md-3">
+            <div class="box-styling hero">
+                <div class="row">
+                    <div class="col-md-3 mb-4 mb-md-0 text-md-center">
+                        <img src="../images/icon-09.svg" alt="Green tick icon" class="hero-icon">
+                    </div>
+                    <div class="col align-self-center">
+                        <h1 class="font-weight-bold m-0">Thank you.</h1>
+                        <p class="hero-para">Your test slots have successfully been booked. You will receive a confirmation email containing the dates of your tests and any instructions you need to follow.<br/>
+                            You can also click the log in button above and sign in to check your test dates and results.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% } %>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="

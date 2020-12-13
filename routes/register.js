@@ -12,18 +12,22 @@ registerRouter.get('/', (req, res, next) =>{
     if(utils.verifyToken(req)){
         res.redirect('/user');
     }else{
-        res.render('../templates/register');
+        res.render('../templates/register', {
+            success: false,
+        });
     }
 });
 
 registerRouter.post('/', (req, res, next) => {
     if(doesUserExist(req.body.username)){
         res.render('../templates/register', {
-            message: "A booking with that username already exists. Please either <a href=\"/user/login\">log in</a> or choose a different username."
+            message: "A booking with that username already exists. Please either <a href=\"/user/login\">log in</a> or choose a different username.",
+            success: false,
         });
     }else if(!validatePostcode(req.body.postcode.toUpperCase())){
         res.render('../templates/register', {
-            message: "Please enter a valid UK postcode."
+            message: "Please enter a valid UK postcode.",
+            success: false,
         });
     }else{
         let data = JSON.stringify(req.body);
@@ -35,14 +39,12 @@ registerRouter.post('/', (req, res, next) => {
                 throw err;
             }else{
                 sendEmail(req.body);
-                res.redirect("/register/success");
+                res.render("../templates/register", {
+                    success: true,
+                });
             }
         });
     }
-});
-
-registerRouter.get('/success', (req, res, next) =>{
-   res.render('../templates/success');
 });
 
 module.exports = registerRouter;
