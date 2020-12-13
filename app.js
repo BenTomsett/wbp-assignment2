@@ -19,7 +19,8 @@ if(fs.existsSync(`.env`)){
             console.log("\x1b[31mCOULDN'T CREATE .env FILE - EXITING.\x1b[0m");
             process.exit(1);
         }else{
-            console.log("\x1b[32m.env file created. Have a nice day!\x1b[0m");
+            console.log("\x1b[32m.env file created. The server will now exit, simply run it again and you should be good to go!\x1b[0m");
+            process.exit(0);
         }
     });
 }
