@@ -14,7 +14,7 @@ if(fs.existsSync(`.env`)){
 }else{
     //Create .env file if it doesn't exist, along with a condescending message
     console.log("\x1b[31mWARN:\x1b[0m No .env file was found in the root directory of the app. A .env file will be created with a random secret key for JWT authentication. Don't modify this file, and ensure it stays with the project from now on,");
-    fs.writeFile(`.env`, crypto.randomBytes(64).toString('hex'), (err) => {
+    fs.writeFile(`.env`, "TOKEN_SECRET=" + crypto.randomBytes(64).toString('hex'), (err) => {
         if(err){
             console.log("\x1b[31mCOULDN'T CREATE .env FILE - EXITING.\x1b[0m");
             process.exit(1);
