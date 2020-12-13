@@ -48,7 +48,7 @@
                         <img src="../images/icon-09.svg" alt="Green tick icon" class="hero-icon">
                     </div>
                     <div class="col align-self-center">
-                        <h1 class="font-weight-bold m-0">Welcome back, <%=first_name%></h1>
+                        <h1 class="font-weight-bold m-0">Welcome back, <%=user.first_name%></h1>
                         <p class="hero-para"><strong>Current status: </strong>Test slots booked</p>
                         <p class="hero-para">Your test slots have been booked, and can be viewed below. Once the results of your tests are available, you can check back here to see the results.</p>
                     </div>
@@ -65,39 +65,39 @@
                     <div class="row no-gutters mb-0 mb-md-3">
                         <div class="col-md formInput mr-0 mr-md-2 mb-3 mb-md-0">
                             <input disabled class="form-control" type="text" accesskey="F" id="first_name"
-                                   placeholder="First Name" name="first_name" value="<%=first_name%>">
+                                   placeholder="First Name" name="first_name" value="<%=user.first_name%>">
                             <label for="first_name">First name</label>
                         </div>
                         <div class="col-md formInput ml-0 ml-md-2 mb-3 mb-md-0">
                             <input disabled class="form-control" type="text" accesskey="L" id="last_name" placeholder="Last Name"
-                                   name="last_name"  value="<%=last_name%>">
+                                   name="last_name"  value="<%=user.ast_name%>">
                             <label for="last_name">Last name</label>
                         </div>
                     </div>
                     <div class="row no-gutters mb-0 mb-md-3">
                         <div class="col-md formInput mr-0 mr-md-2 mb-3 mb-md-0">
                             <input disabled class="form-control" type="email" id="email" accesskey="E"
-                                   placeholder="Email address" name="email"  value="<%=email%>">
+                                   placeholder="Email address" name="email"  value="<%=user.email%>">
                             <label for="email">Email address</label>
                         </div>
                         <div class="col-md formInput ml-0 ml-md-2 mb-3 mb-md-0">
                             <input disabled class="form-control" type="tel" id="phone" accesskey="N" placeholder="Phone Number"
-                                   pattern="[0-9]{11}" name="phone" value="<%=phone%>">
+                                   pattern="[0-9]{11}" name="phone" value="<%=user.phone%>">
                             <label for="phone">Phone number</label>
                         </div>
                     </div>
                     <div class="row no-gutters mb-0 mb-md-3">
                         <div class="col-md formInput mr-0 mr-md-2 mb-3 mb-md-0">
-                            <input disabled class="form-control" type="number" id="age" accesskey="A" placeholder="Age(years)" name="age"  value="<%=age%>">
+                            <input disabled class="form-control" type="number" id="age" accesskey="A" placeholder="Age(years)" name="age"  value="<%=user.age%>">
                             <label for="age">Age (years)</label>
                         </div>
                         <div class="col ml-0 ml-md-2 mb-3 mb-md-0">
                             <div class="dropdownSelect p-0">
                                 <select disabled class="form-control" id="gender" name="gender">
                                     <option disabled>Gender (please select)</option>
-                                    <option <% if(gender === "male") { %> selected <% } %> value="male">Male</option>
-                                    <option <% if(gender === "female") { %> selected <% } %> value="female">Female</option>
-                                    <option <% if(gender === "other") { %> selected <% } %> value="other">Other/Prefer not to say</option>
+                                    <option <% if(user.gender === "male") { %> selected <% } %> value="male">Male</option>
+                                    <option <% if(user.gender === "female") { %> selected <% } %> value="female">Female</option>
+                                    <option <% if(user.gender === "other") { %> selected <% } %> value="other">Other/Prefer not to say</option>
                                 </select>
                             </div>
                         </div>
@@ -107,22 +107,22 @@
                             <div class="dropdownSelect p-0">
                                 <select disabled class="form-control" id="ethnicity" name="ethnicity">
                                     <option disabled value="british">Ethnicity (please select)</option>
-                                    <option <% if(ethnicity === "british") { %> selected <% } %> value="british">British</option>
-                                    <option <% if(ethnicity === "irish") { %> selected <% } %> value="irish">Irish</option>
-                                    <option <% if(ethnicity === "gypsy") { %> selected <% } %> value="gypsy">Gypsy</option>
-                                    <option <% if(ethnicity === "otherW") { %> selected <% } %> value="otherW">Other White background</option>
-                                    <option <% if(ethnicity === "wAndBC") { %> selected <% } %> value="wAndBC">White and Black Caribbean</option>
-                                    <option <% if(ethnicity === "wandBA") { %> selected <% } %> value="wandBA">White and Black African</option>
-                                    <option <% if(ethnicity === "wAndA") { %> selected <% } %> value="wAndA">White and Asian</option>
-                                    <option <% if(ethnicity === "otherMix") { %> selected <% } %> value="otherMix">Other Mixed or Multiple ethnic background</option>
-                                    <option <% if(ethnicity === "indian") { %> selected <% } %> value="indian">Indian</option>
-                                    <option <% if(ethnicity === "pakistani") { %> selected <% } %> value="pakistani">Pakistani</option>
-                                    <option <% if(ethnicity === "bangladeshi") { %> selected <% } %> value="bangladeshi">Bangladeshi</option>
-                                    <option <% if(ethnicity === "chinese") { %> selected <% } %> value="chinese">Chinese</option>
-                                    <option <% if(ethnicity === "otherA") { %> selected <% } %> value="otherA">Other Asian background</option>
-                                    <option <% if(ethnicity === "african") { %> selected <% } %> value="african">African</option>
-                                    <option <% if(ethnicity === "caribbean") { %> selected <% } %> value="caribbean">Caribbean</option>
-                                    <option <% if(ethnicity === "otherBAC") { %> selected <% } %> value="otherBAC">Other Black, African or Caribbean background</option>
+                                    <option <% if(user.ethnicity === "british") { %> selected <% } %> value="british">British</option>
+                                    <option <% if(user.ethnicity === "irish") { %> selected <% } %> value="irish">Irish</option>
+                                    <option <% if(user.ethnicity === "gypsy") { %> selected <% } %> value="gypsy">Gypsy</option>
+                                    <option <% if(user.ethnicity === "otherW") { %> selected <% } %> value="otherW">Other White background</option>
+                                    <option <% if(user.ethnicity === "wAndBC") { %> selected <% } %> value="wAndBC">White and Black Caribbean</option>
+                                    <option <% if(user.ethnicity === "wandBA") { %> selected <% } %> value="wandBA">White and Black African</option>
+                                    <option <% if(user.ethnicity === "wAndA") { %> selected <% } %> value="wAndA">White and Asian</option>
+                                    <option <% if(user.ethnicity === "otherMix") { %> selected <% } %> value="otherMix">Other Mixed or Multiple ethnic background</option>
+                                    <option <% if(user.ethnicity === "indian") { %> selected <% } %> value="indian">Indian</option>
+                                    <option <% if(user.ethnicity === "pakistani") { %> selected <% } %> value="pakistani">Pakistani</option>
+                                    <option <% if(user.ethnicity === "bangladeshi") { %> selected <% } %> value="bangladeshi">Bangladeshi</option>
+                                    <option <% if(user.ethnicity === "chinese") { %> selected <% } %> value="chinese">Chinese</option>
+                                    <option <% if(user.ethnicity === "otherA") { %> selected <% } %> value="otherA">Other Asian background</option>
+                                    <option <% if(user.ethnicity === "african") { %> selected <% } %> value="african">African</option>
+                                    <option <% if(user.ethnicity === "caribbean") { %> selected <% } %> value="caribbean">Caribbean</option>
+                                    <option <% if(user.ethnicity === "otherBAC") { %> selected <% } %> value="otherBAC">Other Black, African or Caribbean background</option>
                                 </select>
                             </div>
                         </div>
@@ -137,12 +137,12 @@
                     <div class="row no-gutters mb-0 mb-md-3">
                         <div class="col-md formInput mr-0 mr-md-2 mb-3 mb-md-0">
                             <input class="form-control" type="text" accesskey="H" id="house_name"
-                                   placeholder="House name/number" name="house_name" disabled value="<%=house_name%>">
+                                   placeholder="House name/number" name="house_name" disabled value="<%=user.house_name%>">
                             <label for="house_name">House name/number</label>
                         </div>
                         <div class="col-md formInput ml-0 ml-md-2 mb-3 mb-md-0">
                             <input class="form-control" type="text" accesskey="C" id="postcode" placeholder="Postcode"
-                                   name="postcode" disabled value="<%=postcode%>">
+                                   name="postcode" disabled value="<%=user.postcode%>">
                             <label for="postcode">Postcode</label>
                         </div>
                     </div>
@@ -155,7 +155,7 @@
                     <div class="row no-gutters">
                         <div class="col-md formInput mr-0 mr-md-2 mb-3 mb-md-0">
                             <input class="form-control" type="text" accesskey="U" id="username" placeholder="Username"
-                                   name="username" disabled value="<%=username%>">
+                                   name="username" disabled value="<%=user.username%>">
                             <label for="username">Username</label>
                         </div>
                     </div>
@@ -168,7 +168,7 @@
                     <div class="row no-gutters mb-0 mb-md-3">
                         <div class="col-md formInput mr-0 mr-md-2 mb-3 mb-md-0">
                             <textarea class="form-control" accesskey="C" id="comments"
-                                      placeholder="Comments" name="comments" disabled><%=comments%></textarea>
+                                      placeholder="Comments" name="comments" disabled><%=user.comments%></textarea>
                         </div>
                     </div>
                 </div>
@@ -180,15 +180,15 @@
                     <div class="row no-gutters">
                         <div class="col-md formInput mr-0 mr-md-2 mb-3 mb-md-0">
                             <input class="form-control" type="date" id="testDateOne"
-                                   name="testDateOne" disabled value="<%=testDateOne%>">
+                                   name="testDateOne" disabled value="<%=user.testDateOne%>">
                             <label for="testDateOne">Your first test date</label>
                         </div>
                         <div class="col ml-0 ml-md-2 mb-3 mb-md-0">
                             <div class="dropdownSelect p-0">
                                 <select disabled class="form-control" id="testTimeOne" name="testTimeOne">
                                     <option disabled selected>Select your first test time...</option>
-                                    <option <% if(testTimeOne === "morning") { %> selected <% } %> value="morning">Morning</option>
-                                    <option <% if(testTimeOne === "afternoon") { %> selected <% } %> value="afternoon">Afternoon</option>
+                                    <option <% if(user.testTimeOne === "morning") { %> selected <% } %> value="morning">Morning</option>
+                                    <option <% if(user.testTimeOne === "afternoon") { %> selected <% } %> value="afternoon">Afternoon</option>
                                 </select>
                             </div>
                         </div>
@@ -196,15 +196,15 @@
                     <div class="row no-gutters mt-3">
                         <div class="col-md formInput mr-0 mr-md-2 mb-3 mb-md-0">
                             <input class="form-control" type="date" id="testDateTwo"
-                                   name="testDateTwo" disabled value="<%=testDateTwo%>">
+                                   name="testDateTwo" disabled value="<%=user.testDateTwo%>">
                             <label for="testDateTwo">Your second test date</label>
                         </div>
                         <div class="col ml-0 ml-md-2 mb-3 mb-md-0">
                             <div class="dropdownSelect p-0">
                                 <select disabled disabled class="form-control" id="testTimeTwo" name="testTimeTwo">
                                     <option disabled selected>Select your second test time...</option>
-                                    <option <% if(testTimeTwo === "morning") { %> selected <% } %> value="morning">Morning</option>
-                                    <option <% if(testTimeTwo === "afternoon") { %> selected <% } %> value="afternoon">Afternoon</option>
+                                    <option <% if(user.testTimeTwo === "morning") { %> selected <% } %> value="morning">Morning</option>
+                                    <option <% if(user.testTimeTwo === "afternoon") { %> selected <% } %> value="afternoon">Afternoon</option>
                                 </select>
                             </div>
                         </div>

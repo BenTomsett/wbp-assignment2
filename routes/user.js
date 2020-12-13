@@ -8,21 +8,7 @@ userRouter.get('/', utils.authenticateMiddleware, (req, res, next) =>{
         const user = utils.loadUserData(req.user.username);
         res.render('../templates/user', {
             authenticated: utils.verifyToken(req),
-            first_name: user.first_name,
-            last_name: user.last_name,
-            email: user.email,
-            phone: user.phone,
-            age: user.age,
-            gender: user.gender,
-            ethnicity: user.ethnicity,
-            house_name: user.house_name,
-            postcode: user.postcode,
-            username: user.username,
-            comments: user.comments,
-            testDateOne: user.testDateOne,
-            testTimeOne: user.testTimeOne,
-            testDateTwo: user.testDateTwo,
-            testTimeTwo: user.testTimeTwo,
+            user: user,
         });
     }else{
         res.redirect('/user/login');
