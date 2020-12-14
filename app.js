@@ -11,6 +11,8 @@ const utils = require('./utils');
 //This .env file is required to hash the JSON Web Tokens used for login authentications. Without it, login won't work, but all the "strictly required" functionality will work.
 if(fs.existsSync(`.env`)){
     console.log("\x1b[32mFound a .env file in the project root.\x1b[0m\n");
+}else if(process.env.TOKEN_SECRET !== undefined){
+    console.log("\x1b[32mFound a configured secret key\x1b[0m\n");
 }else{
     //Create .env file if it doesn't exist, along with a condescending message
     console.log("\x1b[31mWARN:\x1b[0m No .env file was found in the root directory of the app. A .env file will be created with a random secret key for JWT authentication. Don't modify this file, and ensure it stays with the project from now on,");
